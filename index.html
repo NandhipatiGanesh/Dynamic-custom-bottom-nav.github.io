@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <title>Nav Bar</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+ 
+    @media (max-width: 500px) {
+        #bottom-bar .mobile .action {
+            align-items: flex-end;
+            display: flex;
+        }
+        #bottom-bar .mobile .action .close {
+            margin: 19px 15px;
+        }
+        #bottom-bar .mobile .action .close img {
+            max-width: none;
+        }
+        #bottom-bar .mobile .swipe-up {
+            padding-left: 0;
+            padding-right: 42px;
+            width: 100%;
+        }
+        #bottom-bar .mobile .swipe {
+            cursor: pointer;
+            text-align: center;
+        }
+        #bottom-bar .mobile .swipe-up .swipe-text {
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.6666666667;
+            
+        }
+        #bottom-bar .mobile .swipe .swipe-text {
+            display: inline-block;
+            position: relative;
+        }
+        #bottom-bar {
+            bottom: 0;
+            position: absolute;
+            width: 100%;
+            z-index: 999;
+        }
+        #bottom-bar .mobile {
+            background: #fff;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, .12);
+            touch-action: none;
+            width: 100%;
+        }
+        .swipe-text{
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        p{
+            margin: 0;
+        }
+
+        .check {
+            display: none;
+          }
+          .nav-bar {
+            width: 390px;
+            height: fit-content;
+            padding: 10px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: poppins;
+            
+          }
+          .nav-bar label {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            font-size: 15px;
+            font-weight: 500;
+            padding: 10px;
+            border-radius: 8mm;
+            max-width: 32px;
+            overflow: hidden;
+            transition: 0.35s ease-out;
+          }
+          .nav-bar label span {
+            font-size: 32px;
+            margin-right: 10px;
+          }
+          .nav-bar label:hover {
+            background: rgba(0, 0, 0, 0.1);
+          }
+         
+/* Apply hover styles to labels */
+.nav-bar label[for="item1"]:hover,
+.nav-bar label[for="item2"]:hover,
+.nav-bar label[for="item3"]:hover,
+.nav-bar label[for="item4"]:hover {
+  background: var(--color1);
+  color: var(--color2);
+  max-width: 150px; 
+}
+
+/* Change the background color of the .center container based on which label is hovered */
+.nav-bar label[for="item1"]:hover ~ .center {
+  background: rgb(91, 55, 183);
+}
+.nav-bar label[for="item2"]:hover ~ .center {
+  background: rgb(201, 55, 157);
+}
+.nav-bar label[for="item3"]:hover ~ .center {
+  background: rgb(230, 169, 25);
+}
+.nav-bar label[for="item4"]:hover ~ .center {
+  background: rgb(17, 148, 170);
+}
+.custom-bottom-nav{
+    display: none;
+}
+
+    }
+
+
+</style>
+</head>
+<body>
+<section  id="bottom-bar">
+    <div class="mobile"> 
+    <div class="action"><p class="close" style="">
+        <img loading="lazy" class="img" src="https://neilpatel.com/wp-content/themes/neilpatel/images/close-t.svg" width="12" height="12" alt="Close"></p>
+        <p class="swipe swipe-up" data-swipe-threshold="5" data-swipe-timeout="1000" style="">
+            <span class="swipe-text">
+                <img width="15" height="15" src="https://img.icons8.com/external-inkubators-detailed-outline-inkubators/25/external-up-arrow-arrows-inkubators-detailed-outline-inkubators-2.png" alt="external-up-arrow-arrows-inkubators-detailed-outline-inkubators-2"/>
+               <span> Swipe Up to Get More Traffic!</span> </span></p></div>
+</div>
+<div  class="custom-bottom-nav"  id="custombtmnav"> 
+<input type="radio" name="nav" id="item1" class="check" checked />
+    <input type="radio" name="nav" id="item2" class="check" />
+    <input type="radio" name="nav" id="item3" class="check" />
+    <input type="radio" name="nav" id="item4" class="check" />
+    <div class="center">
+      <div class="nav-bar">
+        <label
+          for="item1"
+          style="--color1: rgb(233, 215, 243); --color2: rgb(91, 55, 183)"
+        >
+          <span class="material-icons-outlined"> home </span>
+          Home
+        </label>
+
+        <label
+          for="item2"
+          style="--color1: rgb(246, 214, 238); --color2: rgb(201, 55, 157)"
+        >
+          <span class="material-icons-outlined"> favorite_border </span>
+          Favourite
+        </label>
+
+        <label
+          for="item3"
+          style="--color1: rgb(251, 239, 211); --color2: rgb(230, 169, 25)"
+        >
+          <span class="material-icons-outlined"> search </span>
+          Search
+        </label>
+
+        <label
+          for="item4"
+          style="--color1: rgb(209, 235, 239); --color2: rgb(17, 148, 170)"
+        >
+          <span class="material-icons-outlined"> person </span>
+          Profile
+        </label>
+      </div>
+    </div>
+</div>
+</section>
+<script>
+    document.querySelector('.swipe-up').addEventListener('touchstart', handleTouchStart, false);
+document.querySelector('.swipe-up').addEventListener('touchmove', handleTouchMove, false);
+
+let yDown = null;
+
+function handleTouchStart(evt) {
+    const firstTouch = evt.touches[0];
+    yDown = firstTouch.clientY;
+}
+
+function handleTouchMove(evt) {
+    if (!yDown) {
+        return;
+    }
+
+    let yUp = evt.touches[0].clientY;
+    let yDiff = yDown - yUp;
+
+    if (yDiff > 0) {
+        // Swipe up code
+        document.getElementById('custombtmnav').style.display = 'block';
+    }
+
+    // Reset values
+    yDown = null;
+}
+
+// Close button functionality
+document.querySelector('.close-nav').addEventListener('click', function() {
+    document.getElementById('custombtmnav').style.display = 'none';
+});
+
+</script>
+</body>
+</html>
