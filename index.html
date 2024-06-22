@@ -197,39 +197,61 @@
     </div>
 </div>
 </section>
+    
 <script>
     document.querySelector('.swipe-up').addEventListener('touchstart', handleTouchStart, false);
-document.querySelector('.swipe-up').addEventListener('touchmove', handleTouchMove, false);
-
-let yDown = null;
-
-function handleTouchStart(evt) {
-    const firstTouch = evt.touches[0];
-    yDown = firstTouch.clientY;
-}
-
-function handleTouchMove(evt) {
-    if (!yDown) {
-        return;
+    document.querySelector('.swipe-up').addEventListener('touchmove', handleTouchMove, false);
+    
+    let yDown = null;
+    
+    function handleTouchStart(evt) {
+        const firstTouch = evt.touches[0];
+        yDown = firstTouch.clientY; // Get the vertical position of the touch
     }
-
-    let yUp = evt.touches[0].clientY;
-    let yDiff = yDown - yUp;
-
-    if (yDiff > 0) {
-        // Swipe up code
-        document.getElementById('custombtmnav').style.display = 'block';
+    
+    function handleTouchMove(evt) {
+        if (!yDown) {
+            return;
+        }
+    
+        let yUp = evt.touches[0].clientY;
+        let yDiff = yDown - yUp;
+    
+        // Setting a threshold for swipe action to be considered valid
+        if (yDiff > 50) { // Swipe up
+            document.getElementById('custombtmnav').style.display = 'block';
+            yDown = null; // Resetting yDown to prevent multiple triggers
+        } else if (yDiff < -50) { // Swipe down
+            document.getElementById('custombtmnav').style.display = 'none';
+            yDown = null; // Resetting yDown to prevent multiple triggers
+        }
     }
-
-    // Reset values
-    yDown = null;
-}
-
-// Close button functionality
-document.querySelector('.close-nav').addEventListener('click', function() {
-    document.getElementById('custombtmnav').style.display = 'none';
-});
-
+    function handleTouchStart(evt) {
+        evt.preventDefault(); // Prevent scrolling when touching the swipe area
+        const firstTouch = evt.touches[0];
+        yDown = firstTouch.clientY;
+    }
+    
+    function handleTouchMove(evt) {
+        evt.preventDefault(); // Prevent scrolling when moving touch
+        if (!yDown) {
+            return;
+        }
+    
+        let yUp = evt.touches[0].clientY;
+        let yDiff = yDown - yUp;
+    
+        if (yDiff > 50) {
+            document.getElementById('custombtmnav').style.display = 'block';
+            yDown = null;
+        } else if (yDiff < -50) {
+            document.getElementById('custombtmnav').style.display = 'none';
+            yDown = null;
+        }
+    }
+        
 </script>
+</body>
+</html>
 </body>
 </html>
