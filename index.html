@@ -79,9 +79,9 @@
             display: none;
           }
           .nav-bar {
-            width: 390px;
-            height: fit-content;
-            padding: 10px;
+            width: 100%;
+            height: auto;
+            
             background: white;
             display: flex;
             align-items: center;
@@ -135,9 +135,10 @@
 .custom-bottom-nav{
     display: none;
 }
-        .center{
-    padding-left: 10px;
-    padding-right: 10px;
+.center{
+   width: 100%;
+   overflow:hidden;
+   height: 60px;
 }
 
     }
@@ -197,7 +198,6 @@
     </div>
 </div>
 </section>
-    
 <script>
     document.querySelector('.swipe-up').addEventListener('touchstart', handleTouchStart, false);
     document.querySelector('.swipe-up').addEventListener('touchmove', handleTouchMove, false);
@@ -251,7 +251,5 @@
     }
         
 </script>
-</body>
-</html>
 </body>
 </html>
