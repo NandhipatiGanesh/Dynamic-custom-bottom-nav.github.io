@@ -17,12 +17,14 @@
     />
 <style>
     body {
-        margin: 0;
-        padding: 0;
-        background: linear-gradient(60deg, #c9b2c5, #afb6e5);
-    --display-element: none;
-    --desktop-display-element: inherit;
-    }
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(60deg, #c9b2c5, #afb6e5);
+  /* Adjust display as needed, but typically not required for body */
+  --display-element: inherit; /* Not used for body, can be removed */
+  --desktop-display-element: inherit; /* Not used in this context, can be removed */
+}
+
  
     @media (max-width: 500px) {
         #bottom-bar .mobile .action {
